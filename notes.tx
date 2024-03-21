@@ -1,0 +1,31 @@
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
+
+import LoginForm from './component1s/LoginForm'
+import Home from './component1s/Home'
+import Products from './component1s/Products'
+import Cart from './component1s/Cart'
+import NotFound from './component1s/NotFound'
+import ProtectedRoute from './component1s/ProtectedRoute'
+
+
+
+
+
+
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/login" component={LoginForm} />
+      <ProtectedRoute exact path="/" component={Home} />
+      <ProtectedRoute exact path="/products" component={Products} />
+      <ProtectedRoute exact path="/cart" component={Cart} />
+      <Route path="/not-found" component={NotFound} />
+      <Redirect to="/not-found" />
+    </Switch>
+  </BrowserRouter>
+)
+
+
+
+
+export default App
